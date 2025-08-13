@@ -9,6 +9,7 @@ import 'pages/disclaimer_page.dart';
 import 'pages/privacy_page.dart';
 import 'pages/rate_us_page.dart';
 import 'pages/share_page.dart';
+import 'pages/settings.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -34,7 +35,7 @@ class DashboardScreen extends StatelessWidget {
         ],
       ),
 
-      // Drawer Menu with all items connected
+      // Drawer Menu with navigation
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -48,18 +49,28 @@ class DashboardScreen extends StatelessWidget {
               ),
               decoration: BoxDecoration(color: Colors.deepPurple),
             ),
+            // ✅ Updated Home tap action
             ListTile(
               leading: const Icon(Icons.home),
               title: const Text('Home'),
               onTap: () {
+                // Close the drawer first
                 Navigator.pop(context);
+                // Redirect to dashboard (removes other routes)
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => const DashboardScreen()),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SettingsPage()),
+                );
               },
             ),
             const Divider(),
@@ -145,7 +156,7 @@ class DashboardScreen extends StatelessWidget {
               title: item['title'],
               color: item['color'],
               onTap: () {
-                // Placeholder: handle taps on dashboard cards
+                // Placeholder for dashboard card navigation
               },
             );
           },
