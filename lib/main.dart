@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
+import 'splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Aio Crafters',
       debugShowCheckedModeBanner: false,
-      home: DashboardScreen(), // Dashboard as the home screen
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const SplashScreen(), // Start with splash screen
     );
   }
 }
