@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -26,13 +24,13 @@ class DashboardScreen extends StatelessWidget {
         ],
       ),
 
-      // Drawer Menu (No Logout Item)
+      // Drawer Menu with extra items
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const UserAccountsDrawerHeader(
-              accountName: Text('Aio Crafters'),
+              accountName: Text('AIO Crafters'),
               accountEmail: Text('aiocrafters@gmail.com'),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -51,6 +49,49 @@ class DashboardScreen extends StatelessWidget {
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
               onTap: () {},
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
+              onTap: () {
+                // Handle about
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.contact_mail),
+              title: const Text('Contact'),
+              onTap: () {
+                // Handle contact
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.announcement),
+              title: const Text('Disclaimer'),
+              onTap: () {
+                // Handle disclaimer
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.privacy_tip),
+              title: const Text('Privacy'),
+              onTap: () {
+                // Handle privacy policy
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.star_rate),
+              title: const Text('Rate Us'),
+              onTap: () {
+                // Handle rate app
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.share),
+              title: const Text('Share'),
+              onTap: () {
+                // Handle share app
+              },
             ),
           ],
         ),
