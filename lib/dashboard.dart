@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+// Import the new pages
+import 'pages/about_page.dart';
+import 'pages/contact_page.dart';
+import 'pages/disclaimer_page.dart';
+import 'pages/privacy_page.dart';
+import 'pages/rate_us_page.dart';
+import 'pages/share_page.dart';
+
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
@@ -24,7 +32,7 @@ class DashboardScreen extends StatelessWidget {
         ],
       ),
 
-      // Drawer Menu with extra items
+      // Drawer Menu with all items connected
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -48,49 +56,69 @@ class DashboardScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                // Handle about
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const AboutPage()),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.contact_mail),
               title: const Text('Contact'),
               onTap: () {
-                // Handle contact
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ContactPage()),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.announcement),
               title: const Text('Disclaimer'),
               onTap: () {
-                // Handle disclaimer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const DisclaimerPage()),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.privacy_tip),
               title: const Text('Privacy'),
               onTap: () {
-                // Handle privacy policy
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const PrivacyPage()),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.star_rate),
               title: const Text('Rate Us'),
               onTap: () {
-                // Handle rate app
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const RateUsPage()),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.share),
               title: const Text('Share'),
               onTap: () {
-                // Handle share app
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SharePage()),
+                );
               },
             ),
           ],
@@ -115,7 +143,7 @@ class DashboardScreen extends StatelessWidget {
               title: item['title'],
               color: item['color'],
               onTap: () {
-                // Handle navigation action
+                // Placeholder: handle taps on dashboard cards
               },
             );
           },
