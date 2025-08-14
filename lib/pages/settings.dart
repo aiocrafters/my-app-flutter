@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../main.dart'; // Import to access themeNotifier
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -8,7 +9,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _darkMode = false;
+  bool _darkMode = themeNotifier.value == ThemeMode.dark;
   bool _notifications = true;
 
   @override
@@ -39,9 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
             leading: const Icon(Icons.person),
             title: const Text('Profile'),
             subtitle: const Text('Update your profile information'),
-            onTap: () {
-              // TODO: Navigate to profile page
-            },
+            onTap: () {},
           ),
 
           const Divider(),
@@ -65,6 +64,9 @@ class _SettingsPageState extends State<SettingsPage> {
             onChanged: (bool value) {
               setState(() {
                 _darkMode = value;
+                themeNotifier.value = value
+                    ? ThemeMode.dark
+                    : ThemeMode.light; // GLOBAL CHANGE
               });
             },
           ),
@@ -96,16 +98,12 @@ class _SettingsPageState extends State<SettingsPage> {
           ListTile(
             leading: const Icon(Icons.lock),
             title: const Text('Change Password'),
-            onTap: () {
-              // TODO: Change password logic
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.language),
             title: const Text('Language'),
-            onTap: () {
-              // TODO: Language selection logic
-            },
+            onTap: () {},
           ),
         ],
       ),

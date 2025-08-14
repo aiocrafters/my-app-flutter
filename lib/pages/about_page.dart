@@ -9,24 +9,17 @@ class AboutPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('About'),
         centerTitle: true,
-        backgroundColor: Colors.blue, // Customize app bar color
+        backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Icon aligned to the top center
             const Center(
-              child: Icon(
-                Icons.info_outline, // Info icon
-                color: Colors.blue,
-                size: 50,
-              ),
+              child: Icon(Icons.info_outline, color: Colors.blue, size: 50),
             ),
             const SizedBox(height: 16),
-
-            // Center the "About App" text
             const Center(
               child: Text(
                 'About App',
@@ -38,19 +31,15 @@ class AboutPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-
-            // Demo description text
             const Text(
               'This is a demo About page for showcasing an application. '
               'Here you can provide details about the purpose of your app, '
               'its target audience, and the benefits it offers. '
               'You can also describe your brand vision and what makes your product unique.',
-              style: TextStyle(fontSize: 16, color: Colors.black87),
+              style: TextStyle(fontSize: 16), // removed hardcoded black
               textAlign: TextAlign.justify,
             ),
             const SizedBox(height: 16),
-
-            // Key Features header
             const Text(
               'Key Features:',
               style: TextStyle(
@@ -60,16 +49,13 @@ class AboutPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-
-            // Features list
             const Text(
               '✔ Feature One – Describe your first feature here\n'
               '✔ Feature Two – Highlight another capability\n'
               '✔ Feature Three – Add more features as needed',
-              style: TextStyle(fontSize: 16, color: Colors.black87),
+              style: TextStyle(fontSize: 16), // removed hardcoded black
               textAlign: TextAlign.justify,
             ),
-
             const SizedBox(height: 16),
           ],
         ),

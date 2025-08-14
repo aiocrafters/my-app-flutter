@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
+import 'package:url_launcher/url_launcher.dart';
 
 class PrivacyPage extends StatelessWidget {
   const PrivacyPage({super.key});
 
-  // Function to launch the URL in an external browser
   Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -18,7 +17,7 @@ class PrivacyPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Privacy Policy'),
         centerTitle: true,
-        backgroundColor: Colors.blue, // Customize app bar color
+        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -26,17 +25,10 @@ class PrivacyPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Icon centered at the top
               const Center(
-                child: Icon(
-                  Icons.privacy_tip, // Privacy icon
-                  color: Colors.blue,
-                  size: 50, // Icon size
-                ),
+                child: Icon(Icons.privacy_tip, color: Colors.blue, size: 50),
               ),
               const SizedBox(height: 16),
-
-              // Heading
               const Center(
                 child: Text(
                   'Privacy Policy',
@@ -48,19 +40,14 @@ class PrivacyPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-
-              // Privacy content
               const Text(
                 'This app does not collect or share personal data, '
                 'except what is essential for its basic functionality. '
                 'You can view our full privacy policy here:',
-                style: TextStyle(fontSize: 16, color: Colors.black87),
+                style: TextStyle(fontSize: 16), // removed hardcoded black
                 textAlign: TextAlign.justify,
               ),
-
               const SizedBox(height: 16),
-
-              // Read More Button
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -69,8 +56,8 @@ class PrivacyPage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue, // Button color
-                    foregroundColor: Colors.white, // Text color
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24,
                       vertical: 12,
@@ -85,7 +72,6 @@ class PrivacyPage extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 16),
             ],
           ),
