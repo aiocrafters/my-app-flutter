@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../main.dart'; // Import to access themeNotifier
+import '../../main.dart'; // For global dark mode control
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -24,27 +24,6 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           const SizedBox(height: 10),
 
-          // Account Section
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              "Account",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
-            subtitle: const Text('Update your profile information'),
-            onTap: () {},
-          ),
-
-          const Divider(),
-
           // Preferences Section
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -64,9 +43,7 @@ class _SettingsPageState extends State<SettingsPage> {
             onChanged: (bool value) {
               setState(() {
                 _darkMode = value;
-                themeNotifier.value = value
-                    ? ThemeMode.dark
-                    : ThemeMode.light; // GLOBAL CHANGE
+                themeNotifier.value = value ? ThemeMode.dark : ThemeMode.light;
               });
             },
           ),
@@ -82,29 +59,6 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
 
           const Divider(),
-
-          // Other Section
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              "Other",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.lock),
-            title: const Text('Change Password'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.language),
-            title: const Text('Language'),
-            onTap: () {},
-          ),
         ],
       ),
     );
